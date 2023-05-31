@@ -23,6 +23,34 @@ class Channel:
         self.video_count = dictionary['items'][0]['statistics']['videoCount']
         self.viewCount = dictionary['items'][0]['statistics']['viewCount']
 
+    def __str__(self):
+        return f" {self.title}, ({self.url})"
+
+    def __add__(self, other):
+        return int(self.subscriberCount) + int(other.subscriberCount)
+
+    def __sub__(self, other):
+        return int(self.subscriberCount) - int(other.subscriberCount)
+        return int(other.subscriberCount) - int(self.subscriberCount)
+
+    def __gt__(self, other):
+        return int(self.subscriberCount) > int(other.subscriberCount)
+
+    def __ge__(self, other):
+        return int(self.subscriberCount) >= int(other.subscriberCount)
+
+    def __lt__(self, other):
+        return int(self.subscriberCount) < int(other.subscriberCount)
+
+    def __le__(self, other):
+        return int(self.subscriberCount) <= int(other.subscriberCount)
+
+    def __eq__(self, other):
+        return int(self.subscriberCount) == int(other.subscriberCount)
+
+
+
+
     def print_info(self) -> None:
         """Выводит в консоль информацию о канале."""
         print(json.dumps(self.channel, indent=2, ensure_ascii=False))
@@ -52,6 +80,3 @@ class Channel:
     @property
     def channel_id(self):
         return self._channel_id
-
-
-
