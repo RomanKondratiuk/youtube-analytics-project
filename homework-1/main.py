@@ -1,7 +1,6 @@
 from src.channel import Channel
 
 
-
 if __name__ == '__main__':
     dubrovskiy = Channel('UC9XJvt8OT-9_8QHDBdqocaw')
     dubrovskiy.print_info()
